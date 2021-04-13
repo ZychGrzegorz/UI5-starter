@@ -1,25 +1,26 @@
-sap.ui.define([
+sap.ui.define(
+  [
     'sap/ui/core/mvc/Controller',
-    "sap/m/MessageToast",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, MessageToast, JSONModel) {
-    'use strict';
+    'sap/m/MessageToast',
+    'sap/ui/model/json/JSONModel',
+    'sap/ui/model/resource/ResourceModel',
+  ],
+  function (Controller, MessageToast, JSONModel, ResourceModel) {
+    'use strict'
     //controla widoku
-    return Controller.extend("sap.ui.demo.walkthrough.App", {
-        onInit: function () {
-            //set the data model on the view
+    //ogarnia to co zwiaane z widokiem
+    return Controller.extend('sap.ui.demo.walkthrough.App', {
 
-            let oData = {
-                recipient: {
-                    name: "UI5"
-                }
-            }
-            let oModel = new JSONModel(oData)
-            this.getView().setModel(oModel)
-        },
-        onShowHello: function () {
-            console.log(this)
-            MessageToast.show('hello there')
-        }
-    });
-});
+      onShowHello: function () {
+        //read msg from i18n model
+        let oBundle = this.getView().getModel('i18n').getResourceBundle()
+        let sRecipient = this.getView()
+          .getModel()
+          .getProperty('/recipient/name')
+        let sMsg = oBundle.getText('helloMsg', [sRecipient])
+      
+        MessageToast.show(sMsg)
+      },
+    })
+  }
+)
