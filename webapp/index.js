@@ -4,7 +4,9 @@ sap.ui.define([
 ], function (XMLView){
   'use strict';
 
-  XMLView.create({ //tworzenie widoku XML
+
+  //tworzenie widoku XML
+  XMLView.create({ 
     viewName: "sap.ui.demo.walkthrough.view.App"  //wskazuje który XML wyświetlić
   }).then(function (oView) {
     oView.placeAt("content") //gdzie umieścić
