@@ -16,13 +16,6 @@ sap.ui.define(
             //call the init function of the parent 
             UIComponent.prototype.init.apply(this, arguments);
             //set data models
-            let oData={
-                recipient:{
-                    name: 'UI5'
-                }
-            }
-            let oModel = new JSONModel(oData);
-            this.setModel(oModel);
 
             //set dialog
             this._helloDialog = new HelloDialog(this.getRootControl())

@@ -4,9 +4,9 @@
     <Shell>
         <App class='myAppDemoWT'>
             <pages>
-                <Page title="{i18n>homePageTitle}">
+                <Page title="New app">
                     <headerContent>
-                        <Button icon='sap-icon://hello-world' press='.onOpenDialog' />
+                       <Button text='btn header'></Button>
                     </headerContent>
                     <content>
                         <mvc:XMLView viewName="sap.ui.demo.walkthrough.view.HelloPanel" />
